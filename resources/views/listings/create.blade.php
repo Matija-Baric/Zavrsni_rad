@@ -43,7 +43,24 @@
                                 @enderror
                             </div>
     
-                            
+                            <div class="mb-6">
+                                <label
+                                    for="price"
+                                    class="inline-block text-lg mb-2"
+                                    >Car Price</label
+                                >
+                                <input
+                                    type="integer"
+                                    class="border border-gray-200 rounded p-2 w-full"
+                                    name="price"
+                                    placeholder="Example: 200"
+                                    value="{{old('price')}}"
+                                />
+                                @error('price')
+                                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                                @enderror
+                            </div>
+    
     
                             <div class="mb-6">
                                 <label

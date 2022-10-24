@@ -30,5 +30,29 @@ class Listing extends Model
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function id(){
+        return $this->id;
+    }
+
+    public function brand(){
+        return $this->brand;
+    }
+
+    public function location(){
+        return $this->location;
+    }
+
+    public function model(){
+        return $this->model;
+    }
+
+    public function email(){
+        return $this->email;
+    }
+
+    public function user_id(){
+        return $this->user_id;
+    }
 }
 

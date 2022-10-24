@@ -56,12 +56,12 @@
         </div>
 
         <div class="mt-8">
-            {{-- <p>
+            <p>
                 Don't have an account?
                 <a href="/register" class="text-color:#545e68"
                     >Register</a
                 >
-            </p> --}}
+            </p>
         </div>
     </form>
     </x-card>

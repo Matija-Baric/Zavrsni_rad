@@ -22,6 +22,7 @@ class ListingFactory extends Factory
             'model' => $this->faker->company(),
             'email' => $this->faker->companyEmail(),
             'location' => $this->faker->city(),
+            'price' => $this->faker->numberBetween($int1 = 0, $int2 = 150),
             'description' => $this->faker->paragraph(5),
         ];
     }

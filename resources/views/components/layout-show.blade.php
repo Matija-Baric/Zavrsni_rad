@@ -39,21 +39,12 @@
                         Welcome {{auth()->user()->name}}
                     </span>
                 </li>
-
-                @php
-           $id =auth()->id();
-        if( $id == 2)
-        { 
-            @endphp
-            <li>
+                <li>
                     <a href="/listings/manage " class="hover:text-laravel"
                         ><i class="fa-solid fa-gear"></i>
-                        Manage Listings</a
+                        Manage Listing</a
                     >
                 </li>
-    @php
-    } 
-        @endphp
 
                 <li>
                     <form class="inline" method="POST" action="/logout">
@@ -68,16 +59,9 @@
                 @else
                 
                 <li>
-                    <a href="/register " class="hover:text-laravel"
-                        ><i class="fa-solid fa-arrow-right-to-bracket"></i>
-                         Register</a
-                    >
-                </li>
-
-                <li>
                     <a href="/login " class="hover:text-laravel"
                         ><i class="fa-solid fa-arrow-right-to-bracket"></i>
-                         Login</a
+                        Admin Login</a
                     >
                 </li>
                 @endauth
@@ -88,46 +72,34 @@
     {{$slot}}
         </main>
 
-        @php
-           $id =auth()->id();
-        if( $id == 2)
-        { 
-            @endphp
-        <footer class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold  text-white h-20 mt-20 opacity-90 md:justify-center"
+        @auth
+        <footer
+        class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold  text-white h-20 mt-20 opacity-90 md:justify-center"
         style="background-color:#545e68">
         
-        <a
-            href="/listings/create"
+        {{-- <a
+            href="/listings/{{$listing->id}}/create-reservation"
             class="absolute top-1/3 right-10 bg-black text-black py-2 px-5"
             style="background-color:#90b0bd"
             >
-            Create New Car
-        </a>
-    </footer>
-    @php
-    } 
-        @endphp
-
-
-
-
-
-{{-- @php
-           $id =auth()->id();
-        if( $id == 2)
-        { 
-            @endphp
-            <li>
-                    <a href="/listings/manage " class="hover:text-laravel"
-                        ><i class="fa-solid fa-gear"></i>
-                        Manage Listing</a
-                    >
-                </li>
-    @php
-    } 
-        @endphp --}}
+            Create Reservation
         
-    
+        </a> --}}
+
+{{-- /listings/{{$listing->id}}/edit --}}
+        {{-- 
+//Create Reservation
+Route::get('/listings/{$listing}/create-reservation', [ListingController::class, 'reservation'])->middleware('auth'); --}}
+        {{-- <a
+            href="/listings/{$listing}/create-reservation"
+            class="absolute top-1/3 right-10 bg-black text-black py-2 px-5"
+            style="background-color:#90b0bd"
+            >
+            Create Reservation
+        </a> --}}
+
+    </footer>
+    @endauth
 
     <x-flash-message />
 </body>

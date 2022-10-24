@@ -26,8 +26,24 @@ Route::get('/listings/create', [ListingController::class, 'create'])->middleware
 //Store Listing Data
 Route::post('/listings', [ListingController::class, 'store'])->middleware('auth');
 
+//Create Reservation
+Route::get('/listings/{listing}/create-reservation', [ListingController::class, 'reservation'])->middleware('auth');
 
-//Show Edit Form
+//Store Reservation
+Route::post('/reservation/{listing}', [ListingController::class, 'store_reservation'])->middleware('auth');
+
+//Delete Listing
+Route::delete('/reservation/{reservation}', [ListingController::class,'delete_reservation'])->middleware('auth');
+
+//Log in User SCHEDULEEE
+Route::post('/reservation/authenticate', [ListingController::class, 'authenticate']);
+
+/* 
+//Serached reservations
+Route::get('/searched_reservations', [ListingController::class, 'searched_reservations']); */
+
+
+//Show EDIT Form
 Route::get('/listings/{listing}/edit',[ListingController::class, 'edit'])->middleware('auth');
 
 //Update Listing
@@ -41,6 +57,10 @@ Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware
 
 //Single Listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+//Reservation schedule
+Route::get('/listings/{listing}/reservation_schedule', [ListingController::class, 'schedule']);
+
 
 
 //Show Register/Create Form

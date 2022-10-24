@@ -1,5 +1,4 @@
 @props(['listing'])
-
 <x-card>
     <div class="flex">
         <img
@@ -13,6 +12,7 @@
             </h3>
             <div class="text-xl font-bold mb-4">{{$listing->model}}</div>
             <x-listing-tags :tagsCsv="$listing->tags"/>
+            <div class="text-xl fa-usd font-bold mb-4">{{$listing->price}}</div>
             <div class="text-lg mt-4">
                 <i class="fa-solid"></i> {{$listing->location}}
             </div>
